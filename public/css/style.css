@@ -1,0 +1,102 @@
+@charset "utf-8";
+
+/*共通*/
+* *::after ::before{
+    box-sizing:border-box;
+}
+
+a{
+    color:#333;
+}
+
+:root{
+    --main-color:#F27405;
+    --background:#F2E6DF;
+    --line-color:#F25C05;
+}
+/*welcome page*/
+.wrap{
+    background:var(--background);
+}
+
+
+.main{
+    height:100vh;
+    width: 600px;
+    margin:0 auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.main-title{
+    text-align:center;
+    font-size:5rem;
+    line-height:.7;
+}
+
+.buttons{
+    display:flex;
+    justify-content:space-around;
+    margin-top:2rem;
+}
+
+.buttons>button{
+    padding:.5rem 3rem;
+    border-radius:5px;
+    border:1px solid #F25C05;
+    background:#F27405;
+}
+
+.no-login{
+    text-align:center;
+    display:block;
+    margin-top:1.5rem;
+    font-size:.8rem;
+    color:#666;
+}
+
+/*register*/
+.form-container{
+    max-width: 2000px;
+    margin:0 auto;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom:5rem;
+    padding-top: 5rem;
+}
+
+.logo{
+    text-align: center;
+    font-size:3rem ;
+    line-height:.7;
+    margin-bottom:2rem;
+}
+
+.form-container>div>h1{
+    text-align: center;
+}
+
+.form-group{
+    margin-bottom: .5em;
+}
+
+.submit{
+    background:#F27405;
+    margin-bottom:1rem;
+    margin-top:1rem;
+}
+
+.or{
+    text-align:center;
+}
+
+.form{
+    border:2px solid var(--line-color);
+    border-radius:5px;
+    padding:1.7rem;
+    margin-top:2rem;
+    background:#ddd;
+    width: 400px;
+}

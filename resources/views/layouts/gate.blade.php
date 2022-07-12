@@ -13,11 +13,12 @@
         <title>Protective Cat</title>
     </head>
     <body>
-        @if(Auth::check())
-            @include('commons.header')
-        @endif
-        
-        @yield('content')
+        <div class="container">
+            
+            @include('commons.error')
+            @yield('content')
+            
+        </div>
         
         
         

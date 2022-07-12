@@ -1,42 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="wrap">
-<div class="form-container">
-    <div>
-        <div class="logo">
+
+<div class="form-wrap">
+    <div class="container">
+        <h1 class="logo">
             ^           ^<br>
             ProtectiveCat
-        </div>
-        <h1>Signin</h1>
+        </h1>
+        <h2>Signin</h2>
         
         <div class="form">
 
             {!! Form::open(['route'=>'signup.post']) !!}
                 <div class="form-group">
-                    {!! Form::label('nickname','Name') !!}
-                    {!! Form::text('nickname',null,['class'=>'form-control']) !!}
+                    {!! Form::label('name','名前') !!}
+                    {!! Form::text('name',null,['class'=>'form-control']) !!}
                 </div>
                 <div class="form-group">
-                    {!! Form::label('email','Email') !!}
-                    {!! Form::email('Email',null,['class'=>'form-control']) !!}
+                    {!! Form::label('email','メールアドレス') !!}
+                    {!! Form::email('email',null,['class'=>'form-control']) !!}
                 </div>
                 <div class="form-group">
-                    {!! Form::label('password','Password') !!}
+                    {!! Form::label('password','パスワード') !!}
                     {!! Form::password('password',['class'=>'form-control']) !!}
                 </div>
                 <div class="form-group">
-                    {!! Form::label('password_confirmation','Confirmation') !!}
+                    {!! Form::label('password_confirmation','パスワード(確認)') !!}
                     {!! Form::password('password_confirmation',['class'=>'form-control']) !!}
                 </div>
 
                 {!! Form::submit('新規登録',['class'=>'form-control submit']) !!}
                 <p class="or">or</p>
             {!! Form::close() !!}
-                {!! Form::submit('登録せずに使用',['class'=>'form-control submit']) !!}
+            
+            <p  class="form-control submit"><a href=""登録せず使用</a></p>
+               
+                <p class="sub-link">{!! link_to_route('login','ログイン') !!}</p>
             </div>    
         </div>
     </div>
 </div>
-</div>
+
 @endsection

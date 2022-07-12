@@ -14,15 +14,21 @@ a{
     --background:#F2E6DF;
     --line-color:#F25C05;
 }
+
+/*header*/
+nav a{
+    color:#999;
+}
+
+
 /*welcome page*/
-.wrap{
-    background:var(--background);
+body{
+    background:#F2E6DF;
 }
 
 
 .main{
     height:100vh;
-    width: 600px;
     margin:0 auto;
     display:flex;
     justify-content:center;
@@ -31,7 +37,6 @@ a{
 
 .main-title{
     text-align:center;
-    font-size:5rem;
     line-height:.7;
 }
 
@@ -42,13 +47,13 @@ a{
 }
 
 .buttons>button{
-    padding:.5rem 3rem;
     border-radius:5px;
     border:1px solid #F25C05;
     background:#F27405;
+    padding:0 3rem;
 }
 
-.no-login{
+.sub-link{
     text-align:center;
     display:block;
     margin-top:1.5rem;
@@ -57,14 +62,15 @@ a{
 }
 
 /*register*/
-.form-container{
-    max-width: 2000px;
+.form-wrap{
+    max-width:600px;
     margin:0 auto;
     display:flex;
     justify-content: center;
     align-items: center;
     padding-bottom:5rem;
     padding-top: 5rem;
+    
 }
 
 .logo{
@@ -74,12 +80,16 @@ a{
     margin-bottom:2rem;
 }
 
-.form-container>div>h1{
+.form-wrap>div>h2{
     text-align: center;
 }
 
 .form-group{
     margin-bottom: .5em;
+}
+
+.form-control{
+    width: 100%;
 }
 
 .submit{
@@ -90,6 +100,27 @@ a{
 
 .or{
     text-align:center;
+    position:relative;
+    color:#999;
+}
+
+.or:before{
+    content:"";
+    background:#999;
+    width: 30%;
+    height: 1px;
+    position:absolute;
+    top: 1rem;
+    left: 1rem;
+}
+.or:after{
+    content:"";
+    background:#999;
+    width: 30%;
+    height: 1px;
+    position:absolute;
+    top: 1rem;
+    right: 1rem;
 }
 
 .form{
@@ -98,5 +129,24 @@ a{
     padding:1.7rem;
     margin-top:2rem;
     background:#ddd;
-    width: 400px;
+}
+
+/*login*/
+.login-form{
+    margin-bottom:2rem;
+}
+
+/*userinfo*/
+.userinfo-wrap{
+    max-width:600px;
+    margin:0 auto;
+}
+
+.user-form{
+    border:2cdpx solid var(--line-color);
+    border-radius:5px;
+    padding:1.7rem;
+    margin-top:2rem;
+    background:#ddd;
+    width: 100%;
 }

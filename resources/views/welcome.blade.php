@@ -2,15 +2,21 @@
 
 @section('content')
 @if(Auth::check())
+<div class="profile-wrap">
     <p>hello!!{{Auth::user()->nickname}}</p>
-    
+    <h2>Profile</h2>
     <div class="profile">
-        <h2>Profile</h2>
-        <p>ニックネーム：{{Auth::user()->nickname}}</p>
-        <p>年齢：{{Auth::user()->age}}</p>
-        <p>{!!nl2br(e(Auth::user()->comment))!!}</p>
+        <div class="profile-img"></div>
+        <div class="profile-text">
+            <p>ニックネーム：{{Auth::user()->nickname}}</p>
+            <p>年齢：{{Auth::user()->age}}</p>
+            <p>{!!nl2br(e(Auth::user()->comment))!!}</p>
+        </div>
     </div>
     
+
+
+</div>    
     
 @else
     <div class="main">

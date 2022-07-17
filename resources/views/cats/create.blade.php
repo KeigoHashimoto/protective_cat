@@ -4,7 +4,7 @@
 <div class="cats_wrap">
     <h2>保護猫を登録する</h2>
     <div class="form">
-    {!!Form::open(['route'=>'cats.store']) !!}
+    {!!Form::open(['route'=>'cats.store','files'=>true]) !!}
         <div class="form-group">
             {!! Form::label('cat_type','猫の種類',['class'=>'cats-label']) !!}
             {!! Form::text('cat_type',null,['class'=>'form-control']) !!}
@@ -80,6 +80,11 @@
             {!! Form::label('problem','その他問題行動',['class'=>'cats-label']) !!}
             {!! Form::textarea('problem',null,['class'=>'form-control']) !!}
         </div>
+        <div class="form-group">
+            {!! Form::label('imagepath','画像',['class'=>'cats-label']) !!}
+            {!! Form::file('imagepath',null,['class'=>'form-control']) !!}
+        </div>
+        
         {!! Form::submit('登録',['class'=>'form-control submit'])!!}
     {!! Form::close() !!}
     </div>

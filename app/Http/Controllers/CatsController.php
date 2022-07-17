@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Cat;
 
 class CatsController extends Controller
@@ -39,8 +40,15 @@ class CatsController extends Controller
                 'problem'=>$request->problem,
             ]);
             
+        $cat=new Cat;
+        $image=$request->file('imagepath');
+        $path=Storage::disk('s3')->putFile('/',$image,'public');
+        $cat->imagepath = Storage::disk('s3')->url($path);
+        $cat->save();
+                    
         return redirect('/');
     }
+    
     
     public function index(){
         $cats=Cat::orderBy('created_at','desc')->paginate(9);

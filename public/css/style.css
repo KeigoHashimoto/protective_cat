@@ -195,7 +195,7 @@ body{
 }
 
 .profile-wrap h2{
-    margin:5rem;
+    margin:5rem 0;
 }
 
 .profile{
@@ -221,7 +221,7 @@ body{
 
 /*cats.create*/
 .cats_wrap{
-    width: 600px;
+    max-width: 600px;
     margin:5rem auto;
 }
 
@@ -240,6 +240,7 @@ body{
     max-width:1000px;
     margin:0 auto;
     padding:5rem 0;
+    min-height: 100vh;
     
 }
 
@@ -261,6 +262,7 @@ body{
 }
 
 .cat-index-img{
+    display:block;
     width: 250px;
     height: 250px;
     border-radius:50%;
@@ -282,12 +284,17 @@ body{
     margin:5rem auto;
 }
 
+.image-wrap{
+    width: 500px;
+    margin:0 auto;
+}
+
 .cat-show-img{
     width: 500px;
     height: 500px;
     border:5px solid #8C6D32;
     border-radius:50%;
-    margin:0 auto;
+    
 }
 
 .show-number{

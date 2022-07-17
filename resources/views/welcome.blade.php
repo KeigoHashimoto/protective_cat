@@ -5,7 +5,7 @@
 <div class="profile-wrap">
     <h2>Profile</h2>
     <div class="profile">
-        <div class="profile-img"></div>
+        <img class="profile-img" src="{{Auth::user()->user_image}}">
         <div class="profile-text">
             <p>ニックネーム：{{Auth::user()->nickname}}</p>
             <p>年齢：{{Auth::user()->age}}</p>

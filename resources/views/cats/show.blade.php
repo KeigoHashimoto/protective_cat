@@ -3,8 +3,8 @@
 @section('content')
 <div class="cat-show-wrap">
     <div>
-        <div class="cat-show-img">
-            
+        <div class="image-wrap">
+            <img class="cat-show-img" src="{{$cat->imagepath}}" alt="">
         </div>
         
         <p class="show-number">問い合わせ番号：{{$cat->id}}</p>
@@ -41,15 +41,6 @@
     </div>
 </div>
 
-<div class="profile-wrap">
-    <div class="profile">
-        <div class="profile-img"></div>
-        <div class="profile-text">
-            <p>ニックネーム：{{$user->nickname}}</p>
-            <p>年齢：{{$user->age}}</p>
-            <p>{!!nl2br(e($user->comment))!!}</p>
-        </div>
-    </div>
-</div>
+@include('commons.profile')
 
 @endsection

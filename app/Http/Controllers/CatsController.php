@@ -25,27 +25,27 @@ class CatsController extends Controller
                 'excretion'=>'required|max:255',
                 'problem'=>'max:500',
             ]);
-            
-        $request->user()->cats()->create([
-                'cat_type'=>$request->cat_type,
-                'age'=>$request->age,
-                'sex'=>$request->sex,
-                'protected_place'=>$request->protected_place,
-                'personality'=>$request->personality,
-                'castration'=>$request->castration,
-                'vaccination'=>$request->vaccination,
-                'flears'=>$request->flears,
-                'excretion'=>$request->excretion,
-                'sick'=>$request->sick,
-                'problem'=>$request->problem,
-            ]);
+
             
         $cat=new Cat;
         $image=$request->file('imagepath');
         $path=Storage::disk('s3')->putFile('/',$image,'public');
-        $cat->imagepath = Storage::disk('s3')->url($path);
+        $cat->user_id=\Auth::id();
+        $cat->cat_type=$request->cat_type;
+        $cat->age=$request->age;
+        $cat->sex=$request->sex;
+        $cat->protected_place=$request->protected_place;
+        $cat->personality=$request->personality;
+        $cat->castration=$request->castration;
+        $cat->vaccination=$request->vaccination;
+        $cat->flears=$request->flears;
+        $cat->excretion=$request->excretion;
+        $cat->sick=$request->sick;
+        $cat->problem=$request->problem;
+        $cat->imagepath=Storage::disk('s3')->url($path);
         $cat->save();
-                    
+            
+            
         return redirect('/');
     }
     

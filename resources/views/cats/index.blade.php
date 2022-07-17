@@ -8,7 +8,10 @@
         
     @foreach($cats as $cat)
         <div class="cat-card">
-            <div class="cat-index-img"></div>
+
+            <img class="cat-index-img" src="{{$cat->imagepath}}" alt="">
+            
+            
             <div class="cat-index-text">
                 <p>{{$cat->protected_place}}</p>
                 <p>{{$cat->age}}歳</p>

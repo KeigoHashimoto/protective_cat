@@ -21,9 +21,10 @@ class UsersController extends Controller
         return redirect('/');
     }
     
-    public function index(){
-        $users=User::orderBy('id','desc')->paginate(20);
+    
+    public function show($id){
+        $user=USer::findOrFail($id);
         
-        return view('users.index',['users'=>$users]);
+        return view('users.show',['user'=>$user]);
     }
 }

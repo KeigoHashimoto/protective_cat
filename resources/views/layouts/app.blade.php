@@ -19,7 +19,9 @@
         
         @yield('content')
         
-        
+        @if(Auth::check())
+            @include('commons.footer')
+        @endif
         
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS, then Font Awesome -->

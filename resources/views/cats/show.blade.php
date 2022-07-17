@@ -9,7 +9,17 @@
         
         <p class="show-number">問い合わせ番号：{{$cat->id}}</p>
         
-        <a href="" class="favorite btn">お気に入り</a>
+        @if(Auth::id() != $cat->user->id)
+            @if(Auth::user()->is_favorite($cat->id))
+                {!! Form::open(['route'=>['unfavorite',$cat->id]]) !!}
+                    {!! Form::submit('お気に入り解除',['class'=>'btn']) !!}
+                {!! Form::close() !!}
+            @else
+                {!! Form::open(['route'=>['favorite',$cat->id]]) !!}
+                    {!! Form::submit('お気に入り登録',['class'=>'btn']) !!}
+                {!! Form::close() !!}
+            @endif
+        @endif
         
         <div class="cat-profile">
             <div>
@@ -30,4 +40,16 @@
         </div>
     </div>
 </div>
+
+<div class="profile-wrap">
+    <div class="profile">
+        <div class="profile-img"></div>
+        <div class="profile-text">
+            <p>ニックネーム：{{$user->nickname}}</p>
+            <p>年齢：{{$user->age}}</p>
+            <p>{!!nl2br(e($user->comment))!!}</p>
+        </div>
+    </div>
+</div>
+
 @endsection

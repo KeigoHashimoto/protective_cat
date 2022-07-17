@@ -50,7 +50,8 @@ class CatsController extends Controller
     
     public function show($id){
         $cat=Cat::findOrFail($id);
+        $user=$cat->user;
         
-        return view('cats.show',['cat'=>$cat]);
+        return view('cats.show',['cat'=>$cat,'user'=>$user]);
     }
 }

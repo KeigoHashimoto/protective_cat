@@ -18,8 +18,8 @@
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{Auth::user()->name}}</a>
                     <ul class="dropdown-menu dropdown-menu-right">
-                         <li class="dropdown-item">{!! link_to_route('users.index','ユーザー一覧') !!}</li>
-                         <li class="dropdown-item">{!! link_to_route('logout.get','ログアウト') !!}</li>
+                        <li class="dropdown-item">{!! link_to_route('welcome','MyProfile') !!}</li> 
+                        <li class="dropdown-item">{!! link_to_route('logout.get','ログアウト') !!}</li>
                     </ul>
                 </li>
                

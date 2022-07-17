@@ -40,4 +40,34 @@ class User extends Authenticatable
     public function cats(){
         return $this->hasMany('App\Cat');
     }
+    
+    public function favorites(){
+        return $this->belongsToMany('App\Cat','cat_user','user_id','cat_id');
+    }
+    
+    public function add_favorite($catId){
+        $exist=$this->is_favorite($catId);
+        
+        if($exist){
+            return false;
+        }else{
+            $this->favorites()->attach($catId);
+            return true;
+        }
+    }
+    
+    public function unfavorite($catId){
+        $exist=$this->is_favorite($catId);
+        
+        if($exist){
+            $this->favorites()->detach($catId);
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public function is_favorite($catId){
+        return $this->favorites()->where('cat_id',$catId)->exists();
+    }
 }

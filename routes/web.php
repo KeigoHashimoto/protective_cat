@@ -21,17 +21,21 @@ Route::get('logout','Auth\LoginController@logout')->name('logout.get');
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('info','UsersController@info')->name('users.info');
 
 Route::group(['middleware'=>['auth']],function(){
     Route::post('info','UsersController@store')->name('user_info.post');
-    Route::get('user','UsersController@show')->name('user.show');
-    Route::get('users','UsersController@index')->name('users.index');
-    
+    Route::get('user/{id}','UsersController@show')->name('user.show');
+
     Route::get('cats/create','CatsController@create')->name('cats.create');
     Route::post('cats/store','CatsController@store')->name('cats.store');
     Route::get('cats','CatsController@index')->name('cats.index');
     Route::get('cats/{id}','CatsController@show')->name('cat.show');
+    
+    Route::group(['prefix'=>'cats/{id}'],function(){
+        Route::post('favorite','CatsUsersController@store')->name('favorite');
+        Route::delete('unfavorite','CatsUsersController@destroy')->name('unfavorite');
+    });
 });

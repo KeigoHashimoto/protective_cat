@@ -18,7 +18,7 @@
             <h3>{{$user->nickname}}のお気に入り</h3>
             @foreach($user->favorites()->get() as $favorite)
                 <div class="user-list">
-                    <div class="favorite-img"></div>
+                    <img class="favorite-img" src="{{$favorite->imagepath}}">
                     <div class="favorite-text">
                         <p>{{$favorite->cat_type}}</p>
                         <p>{{$favorite->age}}</p>

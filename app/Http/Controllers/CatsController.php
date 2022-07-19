@@ -28,8 +28,12 @@ class CatsController extends Controller
 
             
         $cat=new Cat;
-        $image=$request->file('imagepath');
-        $path=Storage::disk('s3')->putFile('/',$image,'public');
+        /*if($request->file('imagepath')){
+            $image=$request->file('imagepath');
+            $path=Storage::disk('s3')->putFile('/',$image,'public');
+            $cat->imagepath=Storage::disk('s3')->url($path);
+        }*/
+        
         $cat->user_id=\Auth::id();
         $cat->cat_type=$request->cat_type;
         $cat->age=$request->age;
@@ -42,7 +46,7 @@ class CatsController extends Controller
         $cat->excretion=$request->excretion;
         $cat->sick=$request->sick;
         $cat->problem=$request->problem;
-        $cat->imagepath=Storage::disk('s3')->url($path);
+        
         $cat->save();
             
             

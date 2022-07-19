@@ -4,14 +4,14 @@
 <div class="cat-show-wrap">
     <div>
         <div class="image-wrap">
-            <img class="cat-show-img" src="{{$cat->imagepath}}" alt="">
+            <img class="cat-show-img" src="/*{{$cat->imagepath}}*/" alt="">
         </div>
         
         <p class="show-number">問い合わせ番号：{{$cat->id}}</p>
         
         @if(Auth::id() != $cat->user->id)
             @if(Auth::user()->is_favorite($cat->id))
-                {!! Form::open(['route'=>['unfavorite',$cat->id]]) !!}
+                {!! Form::open(['route'=>['unfavorite',$cat->id],'method'=>'delete']) !!}
                     {!! Form::submit('お気に入り解除',['class'=>'btn']) !!}
                 {!! Form::close() !!}
             @else

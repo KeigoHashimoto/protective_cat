@@ -88,5 +88,6 @@
         {!! Form::submit('登録',['class'=>'form-control submit'])!!}
     {!! Form::close() !!}
     </div>
+    {!! link_to_route('welcome','トップに戻る',[],['class'=>'btn']) !!}
 </div>
 @endsection

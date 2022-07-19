@@ -1,15 +1,15 @@
 <header class="mb-4">
-    <nav class="navbar navbar-expand-sm">
-        <a class="navbar-brand" href="/">
+    <nav class="navbar navbar-expand-sm navbar-dark">
+        <a class="navbar-brand ml-3" href="/">
             ^           ^<br>
             ProtectiveCat
         </a>
             
-        <button tyupe="button" class="navbar-toggler" data-toggle="collapse" date-target="#navbar">
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
             <span class="navbar-toggler-icon"></span>
         </button>
         
-        <div class="collapse navbar-collapse" id="navbar">
+        <div class="collapse navbar-collapse mr-3" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 {!! link_to_route('cats.create','猫を譲る',[],['class'=>'nav-link mr-5']) !!}

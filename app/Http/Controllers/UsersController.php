@@ -14,9 +14,11 @@ class UsersController extends Controller
     
     public function store(Request $request){
         $user=\Auth::user();
-        $image=$request->file('user_image');
-        $path=Storage::disk('s3')->putFile('/',$image,'public');
-        $user->user_image=Storage::disk('s3')->url($path);
+        /*if($request->file('user_image')){
+            $image=$request->file('user_image');
+            $path=Storage::disk('s3')->putFile('/',$image,'public');
+            $user->user_image=Storage::disk('s3')->url($path);
+        }*/
         $user->nickname=$request->nickname;
         $user->age=$request->age;
         $user->comment=$request->comment;

@@ -8,7 +8,7 @@
             ^           ^<br>
             ProtectiveCat
         </h1>
-        <h2>Signin</h2>
+        <h2>Signup</h2>
         
         <div class="form">
 
@@ -34,7 +34,7 @@
                 <p class="or">or</p>
             {!! Form::close() !!}
             
-            <p  class="form-control submit"><a href=""登録せず使用</a></p>
+            {!! link_to_route('cats.index','登録しないで使用',[],['class'=>'form-control submit']) !!}
                
                 <p class="sub-link">{!! link_to_route('login','ログイン') !!}</p>
             </div>    

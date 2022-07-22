@@ -8,6 +8,12 @@ use App\User;
 
 class UsersController extends Controller
 {
+    public function welcome(){
+        $user=\Auth::user();
+        
+        return view('welcome',['user'=>$user]);
+    }
+    
     public function info(){
         return view('users.info');
     }

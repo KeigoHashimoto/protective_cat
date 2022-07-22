@@ -25,7 +25,10 @@
                 <p class="or">or</p>
             {!! Form::close() !!}
                 
-            <a href="" class="form-control submit'>登録せず使用</a>
+            {!! link_to_route('guest.index','登録しないで使用',[],['class'=>'form-control submit']) !!}
+            
+            <p class="sub-link"><span class="sub-link">登録がお済じゃありませんか？</span>{!! link_to_route('signup.get','新規登録') !!}</p>
+
                 
         </div>
     </div>

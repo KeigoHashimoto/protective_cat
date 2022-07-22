@@ -51,12 +51,14 @@ a{
     width: 40%;
     display:block;
     margin:0 auto;
+    text-align: center;
 }
 
 .submit{
     background:#F27405;
     margin-bottom:1rem;
     margin-top:1rem;
+    text-align: center;
 }
 
 .btn{
@@ -117,6 +119,50 @@ body{
     margin-top:1.5rem;
     font-size:.8rem;
     color:#666;
+}
+
+/*welcome_users-index  ウェルカムページのユーザーが投稿した一覧*/
+.users-index{
+    height: 100vh;
+}
+.cat-wrap{
+    display:flex;
+}
+
+.cat-date{
+    color:#aaa;
+    margin-left:1rem;
+}
+
+.user-list{
+    border:2px solid var(--line-color);
+    border-radius:5px;
+    margin-bottom:1rem;
+    background: #ddd;
+}
+
+.user-list-img{
+    width: 100px;
+    height: 100px;
+    border:5px solid #8C6D32;
+    border-radius:50%;
+    margin:1rem;
+    display:block;
+}
+
+.user-list-text{
+    transform:translate(0%,25%);
+    line-height: 20px
+}
+
+
+.cat-info{
+    display:flex;
+    column-gap:2rem;
+}
+
+.cat-type{
+    font-size:1.5rem;
 }
 
 /*register*/
@@ -189,7 +235,8 @@ body{
     margin-bottom:2rem;
 }
 
-/*userinfo*/
+
+/*userinfo　ユーザー情報登録ページ*/
 .userinfo-wrap{
     max-width:600px;
     margin:0 auto;
@@ -230,7 +277,7 @@ body{
     margin:0 auto 1rem;
 }
 
-/*cats.create*/
+/*cats.create　保護猫登録ページ*/
 .cats_wrap{
     max-width: 600px;
     margin:5rem auto;
@@ -246,22 +293,19 @@ body{
     letter-spacing: 2px;
 }
 
-/*cat_card*/
+/*cat_card　保護猫一覧ページでの保護猫カード*/
 .cats-index-wrap{
     max-width:1000px;
     margin:0 auto;
     padding:5rem 0;
     min-height: 100vh;
-    
 }
-
 
 .cat-card{
     width:320px;
     height:480px;
     padding:1rem;
     margin:0 auto;
-
 }
 
 .cat-index-img{
@@ -288,7 +332,7 @@ body{
     margin: 0;
 }
 
-/*cat_show*/
+/*cat_show 保護猫の詳細ページ*/
 .cat-show-wrap{
     max-width:1000px;
     margin:5rem auto;
@@ -329,50 +373,73 @@ body{
     column-gap:5rem;
 }
 
-/*user.show*/
-.users-cats-wrap{
+/*chatrooms-index*/
+.chatrooms-index{
+    min-height:100vh;
+}
+
+.chatroom{
     display:flex;
-    column-gap:2rem;
-    max-width: 1000px;
-    margin:5rem auto;
+    border-bottom:2px solid #bbb;
+    width: 70%;
+    margin:0 auto 2rem;
+    padding-bottom: .5rem;
+    
 }
-
-.users-cats-wrap h3{
-    text-align:center;
-    margin-bottom:2rem;
-}
-
-/*user-index*/
-.users-index{
-    height: 100vh;
-}
-.cat-wrap{
-    display:flex;
-}
-
-.cat-date{
-    color:#aaa;
-    margin-left:1rem;
-}
-
-.user-list{
-    border:5px solid var(--line-color);
-    border-radius:5px;
-    margin-bottom:1rem;
-}
-
-.user-list-img{
+.chat-user-img{
+    display:block;
     width: 100px;
     height: 100px;
-    border:5px solid #8C6D32;
     border-radius:50%;
-    margin:1rem;
-    display:block;
+    border:5px solid #8C6D32;
+    background: #fff;
 }
 
-.user-list-text{
+.chatroom-btn{
     display:flex;
-    column-gap:2rem;
-    align-items: center;
+    place-items:center;
+    margin-left:3rem;
+    font-size:2rem;
 }
-    
+
+.chat-post{
+    width: 100%;
+    height:20vh;
+    border-radius:10px;
+}
+
+/*chatroom-show*/
+.chatroom-show{
+    max-width:1000px;
+    margin:0 auto;
+}
+
+.message-user-img{
+    display:block;
+    width: 100px;
+    height: 100px;
+    border-radius:50%;
+    border:5px solid #8C6D32;
+    background: #fff;
+}
+
+.message{
+    display:flex;
+    border-bottom:1px solid #ccc;
+    margin:1rem 0;
+    column-gap:2rem;
+}
+
+message-wrap{
+    line-height:2rem;
+}
+
+.send-user{
+    font-size:1.2rem;
+    font-weight:bold;
+}
+
+.message-created-at{
+    color:#888;
+    font-size:.8rem;
+}

@@ -13,9 +13,8 @@
         <title>Protective Cat</title>
     </head>
     <body>
-        @if(Auth::check())
-            @include('commons.header')
-        @endif
+       
+        @include('commons.header')
         
         @yield('content')
         

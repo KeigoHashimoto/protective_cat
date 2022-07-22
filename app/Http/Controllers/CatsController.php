@@ -8,6 +8,19 @@ use App\Cat;
 
 class CatsController extends Controller
 {
+    public function guest(){
+        $cats=Cat::orderBy('created_at','desc')->paginate(9);
+        
+        return view('cats.index',['cats'=>$cats]);
+    }
+    
+    public function guestshow($id){
+        $cat=Cat::findOrFail($id);
+        $user=$cat->user;
+        
+        return view('cats.show',['cat'=>$cat,'user'=>$user]);
+    }
+    
     public function create(){
         return view('cats.create');
     }

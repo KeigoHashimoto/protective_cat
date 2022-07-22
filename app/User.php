@@ -70,4 +70,20 @@ class User extends Authenticatable
     public function is_favorite($catId){
         return $this->favorites()->where('cat_id',$catId)->exists();
     }
+    
+    public function messages(){
+        return $this->hasMany(Message::class);
+    }
+    
+    public function sends(){
+        return $this->belongsToMany('App\User','messages','user_id','to_user_id');
+    }
+    
+    public function recieves(){
+        return $this->belongsToMany('App\User','messages','to_user_id','user_id');
+    }
+    
+    public function is_chatfriend($toUser){
+        return $this->sends()->where('to_user_id',$toUser)->exists();
+    }
 }

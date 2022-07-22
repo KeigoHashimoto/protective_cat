@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="cats_wrap">
+<div class="cats_wrap container">
     <h2>保護猫を登録する</h2>
     <div class="form">
     {!!Form::open(['route'=>'cats.store','files'=>true]) !!}
@@ -88,6 +88,6 @@
         {!! Form::submit('登録',['class'=>'form-control submit'])!!}
     {!! Form::close() !!}
     </div>
-    {!! link_to_route('welcome','トップに戻る',[],['class'=>'btn']) !!}
+    {!! link_to_route('welcome','トップに戻る',[],['class'=>'btn form-control']) !!}
 </div>
 @endsection

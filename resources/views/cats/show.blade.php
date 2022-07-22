@@ -4,21 +4,25 @@
 <div class="cat-show-wrap">
     <div>
         <div class="image-wrap">
-            <img class="cat-show-img" src="/*{{$cat->imagepath}}*/" alt="">
+            <img class="cat-show-img" src="{{--{{$cat->imagepath}}--}}" alt="">
         </div>
         
         <p class="show-number">問い合わせ番号：{{$cat->id}}</p>
         
-        @if(Auth::id() != $cat->user->id)
-            @if(Auth::user()->is_favorite($cat->id))
-                {!! Form::open(['route'=>['unfavorite',$cat->id],'method'=>'delete']) !!}
-                    {!! Form::submit('お気に入り解除',['class'=>'btn']) !!}
-                {!! Form::close() !!}
-            @else
-                {!! Form::open(['route'=>['favorite',$cat->id]]) !!}
-                    {!! Form::submit('お気に入り登録',['class'=>'btn']) !!}
-                {!! Form::close() !!}
+        @if(Auth::check())
+            @if(Auth::id() != $cat->user->id)
+                @if(Auth::user()->is_favorite($cat->id))
+                    {!! Form::open(['route'=>['unfavorite',$cat->id],'method'=>'delete']) !!}
+                        {!! Form::submit('お気に入り解除',['class'=>'btn']) !!}
+                    {!! Form::close() !!}
+                @else
+                    {!! Form::open(['route'=>['favorite',$cat->id]]) !!}
+                        {!! Form::submit('お気に入り登録',['class'=>'btn']) !!}
+                    {!! Form::close() !!}
+                @endif
             @endif
+        @else
+            {!! link_to_route('signup.get','新規登録してお気に入り登録',[],['class'=>'btn']) !!}
         @endif
         
         <div class="cat-profile">

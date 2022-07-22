@@ -19,11 +19,12 @@ Route::post('login','Auth\LoginController@login')->name('login.post');
 Route::get('logout','Auth\LoginController@logout')->name('logout.get');
 
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', 'UsersController@welcome')->name('welcome');
 
 Route::get('info','UsersController@info')->name('users.info');
+
+Route::get('guest','CatsController@guest')->name('guest.index');
+Route::get('guest/{id}','CatsController@guestshow')->name('guest.show');
 
 Route::group(['middleware'=>['auth']],function(){
     Route::post('info','UsersController@store')->name('user_info.post');
@@ -37,5 +38,11 @@ Route::group(['middleware'=>['auth']],function(){
     Route::group(['prefix'=>'cats/{id}'],function(){
         Route::post('favorite','CatsUsersController@store')->name('favorite');
         Route::delete('unfavorite','CatsUsersController@destroy')->name('unfavorite');
+    });
+    
+    Route::group(['prefix'=>'users/{id}'],function(){
+        Route::get('chatroom','MessagesController@index')->name('messages.get');
+        Route::post('chatroom/store','MessagesController@store')->name('messages.post');
+        Route::get('chatroom/show','MessagesController@show')->name('messages.show');
     });
 });

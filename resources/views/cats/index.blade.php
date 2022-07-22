@@ -8,16 +8,20 @@
         <div class="row">
         
             @foreach($cats as $cat)
-                <div class="cat-card col-sm-4">
+                <div class="cat-card col-md-4">
         
-                    <img class="cat-index-img" src="/*{{$cat->imagepath}}*/" alt="">
+                    <img class="cat-index-img" src="{{--{{$cat->imagepath}}--}}" alt="">
 
                     <div class="cat-index-text">
                         <p>{{$cat->protected_place}}</p>
                         <p>{{$cat->age}}歳</p>
                         <p>{{$cat->sex}}</p>
                     </div>
-                    {!! link_to_route('cat.show','more',[$cat->id],['class'=>'btn']) !!}
+                    @if(Auth::check())
+                        {!! link_to_route('cat.show','more',[$cat->id],['class'=>'btn']) !!}
+                    @else
+                        {!! link_to_route('guest.show','more',[$cat->id],['class'=>'btn']) !!}
+                    @endif
                 </div>
             @endforeach
         </div>

@@ -46,22 +46,31 @@ class MessagesController extends Controller
         $recieves=$user->recieves()->get();
         $messageUsers=$sends->concat($recieves)->unique('id');
         
-        foreach($messageUsers as $messageUser){
+        $chatrooms=array();
+        
+        if(!empty($messageUsers)){
             
-            $chats = Message::where('user_id','=',$user->id)
-            ->orWhere('to_user_id','=',$user->id)
-            ->orderBy('created_at','desc')
-            ->get();
+            foreach($messageUsers as $messageUser){
+                
+                $chats = Message::where('user_id','=',$user->id)
+                ->orWhere('to_user_id','=',$user->id)
+                ->orderBy('created_at','desc')
+                ->get();
+                
             
-            foreach($chats as $chat){
-                if($chat->user_id===$user->id){
-                    $chatrooms[]=User::findOrFail($chat->to_user_id);
-                }else{
-                    $chatrooms[]=User::findOrFail($chat->user_id);
+                foreach($chats as $chat){
+                    
+                    if($chat->user_id===$user->id){
+                        $chatrooms[]=User::findOrFail($chat->to_user_id);
+                    }else if($chat->to_user_id === $user->id){
+                        $chatrooms[]=User::findOrFail($chat->user_id);
+                    }
+      
                 }
             }
             
         }
+        
       
         return view('chatrooms.chatrooms',['user'=>$user,'chatrooms'=>$chatrooms]);
     }

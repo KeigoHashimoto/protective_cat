@@ -42,11 +42,11 @@ class CatsController extends Controller
 
             
         $cat=new Cat;
-        /*if($request->file('imagepath')){
+        if($request->file('imagepath')){
             $image=$request->file('imagepath');
             $path=Storage::disk('s3')->putFile('/',$image,'public');
             $cat->imagepath=Storage::disk('s3')->url($path);
-        }*/
+        }
         
         $cat->user_id=\Auth::id();
         $cat->cat_type=$request->cat_type;

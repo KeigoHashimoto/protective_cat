@@ -10,7 +10,7 @@
     
     @foreach($messages as $message)
         <div class="message container">
-            <div class="message-user-img"><img src=""></div>
+            <div><img class="message-user-img" src="{{$message->user->user_image}}"></div>
             <div class="message-wrap">
                 <p class="send-user">{{$message->user->nickname}}</p>
                 <p>{{$message->message}}</p>

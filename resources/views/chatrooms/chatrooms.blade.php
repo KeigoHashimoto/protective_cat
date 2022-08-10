@@ -3,12 +3,16 @@
 @section('content')
 <div class="container">
     <div class="chatrooms-index">
-        @foreach(array_unique($chatrooms) as $chatroom)
-            <div class="chatroom">
-                <div class="chat-user-img"><img src=""></div>
-               {!! link_to_route('messages.show',$chatroom->nickname,[$chatroom->id],['class'=>'chatroom-btn']) !!}
-            </div>
-        @endforeach
+        @if(!empty($chatrooms))
+            @foreach(array_unique($chatrooms) as $chatroom)
+                <div class="chatroom">
+                    <div><a href="{{route('user.show',[$chatroom->id])}}"><img class="chat-user-img" src="{{$chatroom->user_image}}"></a></div>
+                   {!! link_to_route('messages.show',$chatroom->nickname,[$chatroom->id],['class'=>'chatroom-btn']) !!}
+                </div>
+            @endforeach
+        @else
+            <p>まだやり取りしているユーザーがいません</p>
+        @endif
 
     </div>
 </div>

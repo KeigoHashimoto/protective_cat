@@ -15,6 +15,7 @@ a{
     --line-color:#401D10;
 }
 
+
 /*pagination*/
 
 .pagination{
@@ -47,17 +48,11 @@ a{
     border-radius:5px;
     border:1px solid #F25C05;
     background:#F27405;
+    color:#fff;
     padding:0 3rem;
-    width: 40%;
+    padding:.3rem 5rem;
     display:block;
     margin:0 auto;
-    text-align: center;
-}
-
-.submit{
-    background:#F27405;
-    margin-bottom:1rem;
-    margin-top:1rem;
     text-align: center;
 }
 
@@ -66,9 +61,21 @@ a{
     border:1px solid #F25C05;
     background:#F27405;
     padding:.3rem 3rem;
+    color:#fff;
     width: 60%;
     display:block;
     margin:0 auto;
+}
+
+.edit-btn{
+    padding:5px;
+    text-align: center;
+    background:red;
+    color:#fff;
+    position:absolute;
+    right: 5px;
+    top: 5px;
+    border-radius:5px;
 }
 
 /*header*/
@@ -82,7 +89,21 @@ nav a{
 
 .dropdown-item{
     text-align:center;
+}
 
+.sarch-form-group{
+    margin:0 3rem;
+}
+
+.sarch-form{
+    border-radius:5px;
+    outline:0;
+    min-width:25rem;
+}
+
+.sarch-btn{
+    border-radius:5px;
+    background: #F2F2F2;
 }
 
 
@@ -130,15 +151,16 @@ body{
 }
 
 .cat-date{
-    color:#aaa;
+    color:#888;
     margin-left:1rem;
+    font-size:.8rem;
 }
 
 .user-list{
-    border:2px solid var(--line-color);
     border-radius:5px;
     margin-bottom:1rem;
     background: #ddd;
+    padding:0 2rem;
 }
 
 .user-list-img{
@@ -152,7 +174,8 @@ body{
 
 .user-list-text{
     transform:translate(0%,25%);
-    line-height: 20px
+    line-height: 20px;
+    margin-left:3rem;
 }
 
 
@@ -164,6 +187,7 @@ body{
 .cat-type{
     font-size:1.5rem;
 }
+
 
 /*register*/
 .form-wrap{
@@ -265,6 +289,7 @@ body{
     border:3px solid var(--line-color);
     border-radius:5px;
     line-height:1;
+    position:relative;
 }
 
 .profile-img{
@@ -277,6 +302,31 @@ body{
     margin:0 auto 1rem;
 }
 
+.nav-tabs .nav-item .nav-link{
+    background:#ccc;
+}
+
+.nav-item .nav-link.active{
+    background: #D9AA8F;
+}
+
+.nav-tabs .nav-link{
+    border:none;
+}
+
+.my-cat{
+    background:#D9AA8F ;
+    padding:3rem;
+    margin-bottom: 2rem;
+    border-top-right-radius: 5px;
+}
+
+.favorites{
+    background: #D9AA8F;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    border-top-right-radius: 5px;
+}
 /*cats.create　保護猫登録ページ*/
 .cats_wrap{
     max-width: 600px;
@@ -305,7 +355,6 @@ body{
     width:320px;
     height:480px;
     padding:1rem;
-    margin:0 auto;
 }
 
 .cat-index-img{
@@ -334,7 +383,6 @@ body{
 
 /*cat_show 保護猫の詳細ページ*/
 .cat-show-wrap{
-    max-width:1000px;
     margin:5rem auto;
 }
 
@@ -371,6 +419,7 @@ body{
     display:flex;
     justify-content:center;
     column-gap:5rem;
+    position:relative;
 }
 
 /*chatrooms-index*/
@@ -412,6 +461,7 @@ body{
 .chatroom-show{
     max-width:1000px;
     margin:0 auto;
+    min-height: 100vh;
 }
 
 .message-user-img{

@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="cats_wrap container">
-    <h2>保護猫を登録する</h2>
+    <h2>保護猫を編集する</h2>
     <div class="form">
-    {!!Form::open(['route'=>'cats.store','files'=>true]) !!}
+    {!!Form::model($cat,['route'=>['cat.update',$cat->id],'files'=>true,'method'=>'put']) !!}
         <div class="form-group">
             {!! Form::label('cat_type','猫の種類',['class'=>'cats-label']) !!}
             {!! Form::text('cat_type',null,['class'=>'form-control']) !!}
@@ -85,7 +85,7 @@
             {!! Form::file('imagepath',null,['class'=>'form-control']) !!}
         </div>
         
-        {!! Form::submit('登録',['class'=>'form-control btn'])!!}
+        {!! Form::submit('変更',['class'=>'form-control btn'])!!}
     {!! Form::close() !!}
     </div>
     {!! link_to_route('welcome','トップに戻る',[],['class'=>'btn form-control']) !!}

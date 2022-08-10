@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="cat-show-wrap">
+<div class="cat-show-wrap container">
+ 
     <div>
         <div class="image-wrap">
-            <img class="cat-show-img" src="{{--{{$cat->imagepath}}--}}" alt="">
+            <img class="cat-show-img" src="{{$cat->imagepath}}" alt="">
         </div>
         
         <p class="show-number">問い合わせ番号：{{$cat->id}}</p>
@@ -26,6 +27,10 @@
         @endif
         
         <div class="cat-profile">
+            @if(Auth::id() == $cat->user->id)
+                {!! link_to_route('cat.edit','編集',[$cat->id],['class'=>'edit-btn']) !!}
+            @endif
+
             <div>
                 <p>種類：{{$cat->cat_type}}</p>
                 <p>年齢：{{$cat->age}}</p>

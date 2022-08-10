@@ -5,7 +5,7 @@
     <h3>{{$user->nickname}}とのメッセージ</h3>
     {!! Form::open(['route'=>['messages.post',$user->id]]) !!}
         {!! Form::textarea('message',null,['class'=>'chat-post']) !!}
-        {!! Form::submit('送信',['class'=>'form-control submit']) !!}
+        {!! Form::submit('送信',['class'=>'form-control btn']) !!}
     {!! Form::close() !!}
     
     @foreach($messages as $message)
@@ -19,4 +19,6 @@
         </div>
     @endforeach
 </div>
+
+{!! link_to_route('messages.get','メッセージボードに戻る',[$user->id],['class'=>'btn mb-5']) !!}
 @endsection

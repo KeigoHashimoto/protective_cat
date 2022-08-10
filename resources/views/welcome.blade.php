@@ -4,7 +4,9 @@
 @if(Auth::check())
 @include('commons.profile')
 
-@include('commons.user_cats')
+@include('commons.navtabs')
+
+@include('users.user_cats')
     
 @else
     <div class="main">

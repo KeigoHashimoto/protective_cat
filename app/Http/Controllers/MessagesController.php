@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Message;
 use App\User;
 
@@ -40,11 +41,29 @@ class MessagesController extends Controller
     
     public function index(){
         $user=\Auth::user();
+
         $sends=$user->sends()->get();
         $recieves=$user->recieves()->get();
+        $messageUsers=$sends->concat($recieves)->unique('id');
         
-        
-        return view('chatrooms.chatrooms',['user'=>$user,'sends'=>$sends,'recieves'=>$recieves]);
+        foreach($messageUsers as $messageUser){
+            
+            $chats = Message::where('user_id','=',$user->id)
+            ->orWhere('to_user_id','=',$user->id)
+            ->orderBy('created_at','desc')
+            ->get();
+            
+            foreach($chats as $chat){
+                if($chat->user_id===$user->id){
+                    $chatrooms[]=User::findOrFail($chat->to_user_id);
+                }else{
+                    $chatrooms[]=User::findOrFail($chat->user_id);
+                }
+            }
+            
+        }
+      
+        return view('chatrooms.chatrooms',['user'=>$user,'chatrooms'=>$chatrooms]);
     }
     
 }

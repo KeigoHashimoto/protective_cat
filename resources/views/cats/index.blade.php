@@ -2,15 +2,14 @@
 
 @section('content')
 <div class="cats-index-wrap">
-    
     <div class="container">
         <h2>保護猫一覧</h2>
-        <div class="row">
+        <div class="row justify-content-start">
         
             @foreach($cats as $cat)
                 <div class="cat-card col-md-4">
         
-                    <img class="cat-index-img" src="{{--{{$cat->imagepath}}--}}" alt="">
+                    <img class="cat-index-img" src="{{$cat->imagepath}}" alt="">
 
                     <div class="cat-index-text">
                         <p>{{$cat->protected_place}}</p>

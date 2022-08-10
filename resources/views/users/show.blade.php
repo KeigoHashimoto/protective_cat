@@ -4,5 +4,5 @@
 <div class="user-show-wrap">
     @include('commons.profile')
     
-    @include('commons.user_cats')
+    @include('users.user_cats')
 @endsection

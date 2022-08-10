@@ -29,15 +29,21 @@ Route::get('guest/{id}','CatsController@guestshow')->name('guest.show');
 Route::group(['middleware'=>['auth']],function(){
     Route::post('info','UsersController@store')->name('user_info.post');
     Route::get('user/{id}','UsersController@show')->name('user.show');
+    Route::get('user/{id}/edit','UsersController@edit')->name('user.edit');
+    Route::put('user/{id}/update','UsersController@update')->name('user.update');
+    Route::get('user/{id}/posts','UsersController@posts')->name('user_cats');
 
     Route::get('cats/create','CatsController@create')->name('cats.create');
     Route::post('cats/store','CatsController@store')->name('cats.store');
     Route::get('cats','CatsController@index')->name('cats.index');
     Route::get('cats/{id}','CatsController@show')->name('cat.show');
+    Route::get('cat/{id}/edit','CatsController@edit')->name('cat.edit');
+    Route::put('cat/{id}/put','CatsController@update')->name('cat.update');
     
     Route::group(['prefix'=>'cats/{id}'],function(){
         Route::post('favorite','CatsUsersController@store')->name('favorite');
         Route::delete('unfavorite','CatsUsersController@destroy')->name('unfavorite');
+        Route::get('favorites','CatsUsersController@favorites')->name('favorites');
     });
     
     Route::group(['prefix'=>'users/{id}'],function(){

@@ -16,6 +16,8 @@
        
         @include('commons.header')
         
+        @include('commons.error')
+        
         @yield('content')
         
         @if(Auth::check())

@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="userinfo-wrap mt-5 mb-5">
-    <h2>初めに、ユーザー登録をしてください。</h2>
+    <h2>ユーザー情報の変更</h2>
     
     <div class="form">
-        {!! Form::open(['route'=>'user_info.post','files'=>true]) !!}
+        {!! Form::model($user,['route'=>['user.update',$user->id],'files'=>true,'method'=>'put']) !!}
             <div class="form-group">
                 {!! Form::label('nickname','ニックネーム') !!}
                 {!! Form::text('nickname',null,['class'=>'form-control']) !!}
@@ -22,9 +22,8 @@
                 {!! Form::label('user_image','画像') !!}
                 {!! Form::file('user_image',null,['class'=>'form-control']) !!}
             </div>
-            {!! Form::submit('登録',['class'=>'form-control btn']) !!}
+            {!! Form::submit('変更',['class'=>'form-control btn']) !!}
         {!! Form::close() !!}
     </div>
 </div>
-        
 @endsection

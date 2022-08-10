@@ -1,19 +1,31 @@
-<div class="container vw-80">
-    <h2 claas="profile-title">Profile</h2>
-    <div class="row profile">
-        <div class="col-md-3"><a href="{{route('user.show',[$user->id])}}"><img class=" profile-img" src="{{--{{Auth::user()->user_image}}--}}"></a></div>
+<div class="container">
+    <div class="row profile mt-5">
+        
+        <div class="col-md-3"><a href="{{route('user.show',[$user->id])}}"><img class="profile-img" src="{{$user->user_image}}"></a></div>
+        
+        {{--空白--}}
         <div class="col-md-1"></div>
+        
         <div class="col-md-8">
+ 
             <div class="profile-text">
-                <p>id：{{$user->id}}</p>
+                {{--ログインユーザーのみ自分のプロフィールを編集できる--}}
+                @if(Auth::id()==$user->id)
+                    {!! link_to_route('user.edit','編集',[$user->id],['class'=>'edit-btn']) !!}
+                @endif
                 <p>ニックネーム：{{$user->nickname}}</p>
                 <p>年齢：{{$user->age}}</p>
                 <p>{!!nl2br(e($user->comment))!!}</p>
             </div>
-            @if(Auth::id() != $user->id)
-                {!! link_to_route('messages.show','メッセージを送る',[$user->id],['class'=>'btn mt-3 form-control']) !!}
+            
+            @if(AUth::check())
+                @if(Auth::id() != $user->id)
+                    {!! link_to_route('messages.show','メッセージを送る',[$user->id],['class'=>'btn mt-3 form-control']) !!}
+                @else
+                    {!! link_to_route('messages.get','メッセージボード',[$user->id],['class'=>'btn mt-3 form-control']) !!}
+                @endif
             @else
-                {!! link_to_route('messages.get','メッセージボード',[$user->id],['class'=>'btn mt-3 form-control']) !!}
+                {!! link_to_route('signup.get','新規登録してメッセージを送る',[],['class'=>'btn mt-3 form-control']) !!}
             @endif
         </div>
     </div>

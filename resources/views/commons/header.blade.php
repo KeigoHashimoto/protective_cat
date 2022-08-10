@@ -11,7 +11,14 @@
         
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
+            <div class="sarch-form-group">
+                {!! Form::open(['route'=>['cats.index'],'method'=>'get']) !!}
+                    {!! Form::text('sarch',null,['class'=>'sarch-form','placeholder'=>'キーワードを入力して可愛い猫を検索！']) !!}
+                    {!! Form::submit('検索',['class'=>'sarch-btn']) !!}}
+                {!! Form::close()!!}
+            </div>
             <ul class="navbar-nav">
+                
                 @if(Auth::check())
                     {!! link_to_route('cats.create','猫を譲る',[],['class'=>'nav-link mr-5']) !!}
                     {!! link_to_route('cats.index','猫を探す',[],['class'=>'nav-link mr-5']) !!}

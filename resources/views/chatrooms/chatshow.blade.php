@@ -13,7 +13,7 @@
             <div><img class="message-user-img" src="{{$message->user->user_image}}"></div>
             <div class="message-wrap">
                 <p class="send-user">{{$message->user->nickname}}</p>
-                <p>{{$message->message}}</p>
+                <p>{!!nl2br(e($message->message))!!}</p>
                 <p class="message-created-at">{{$message->created_at}}</p>
             </div>
         </div>

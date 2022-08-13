@@ -295,7 +295,6 @@ body{
 .profile-img{
     border:5px solid #8C6D32;
     border-radius:50%;
-    background: #fff;
     width:250px;
     height:250px;
     display:block;
@@ -367,19 +366,26 @@ body{
 }
 
 .cat-index-text{
-    display: flex;
-    justify-content: space-around;
+    display: column;
+    align-items:center;
     font-size:1.2rem;
     color:#333;
     border-radius:5px;
     margin-bottom:1rem;
 
+
 }
 
 .cat-index-text p{
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
+    max-width:250px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    text-align:center;
 }
+
 
 /*cat_show 保護猫の詳細ページ*/
 .cat-show-wrap{
@@ -415,11 +421,20 @@ body{
     line-height:1;
     border:3px solid var(--line-color);
     border-radius:5px;
-    margin-top:2rem;
+    margin:2rem auto 0;
     display:flex;
     justify-content:center;
     column-gap:5rem;
     position:relative;
+    max-width:1000px;
+}
+
+.cat-profile > div{
+    width:350px;
+}
+
+.cat-profile > div > p{
+    overflow-wrap:break-word;
 }
 
 /*chatrooms-index*/
@@ -479,8 +494,13 @@ body{
     column-gap:2rem;
 }
 
-message-wrap{
+.message-wrap{
     line-height:2rem;
+}
+
+.message-wrap > p{
+    max-width:800px;
+    overflow-wrap:break-word;
 }
 
 .send-user{

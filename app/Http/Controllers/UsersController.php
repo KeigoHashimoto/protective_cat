@@ -26,12 +26,22 @@ class UsersController extends Controller
     }
     
     public function store(Request $request){
+        $request->validate([
+                'nickname'=>'max:255',
+                'age'=>'required|numeric|between:1,100',
+                'comment'=>'required|max:255',
+            ]);
+        
         $user=\Auth::user();
         if($request->file('user_image')){
             $image=$request->file('user_image');
             $path=Storage::disk('s3')->putFile('/',$image,'public');
             $user->user_image=Storage::disk('s3')->url($path);
+        }else if($request->file('user_image') == null){
+            $user->user_image=Storage::disk('s3')->url('default_user.jpg');
         }
+        
+
         $user->nickname=$request->nickname;
         $user->age=$request->age;
         $user->comment=$request->comment;
@@ -54,6 +64,12 @@ class UsersController extends Controller
     }
     
     public function update(Request $request , $id){
+        $request->validate([
+                'nickname'=>'max:255',
+                'age'=>'required|between:1,100',
+                'comment'=>'required|max:255',
+            ]);
+        
         $user=User::findOrFail($id);
         
         if($request->file('user_image')){

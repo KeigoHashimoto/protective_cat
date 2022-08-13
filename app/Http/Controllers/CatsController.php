@@ -28,7 +28,7 @@ class CatsController extends Controller
     public function store(Request $request){
         $request->validate([
                 'cat_type'=>'required|max:255',
-                'age'=>'required',
+                'age'=>'required|numeric|between:1,100',
                 'sex'=>'required',
                 'protected_place'=>'required|max:255',
                 'personality'=>'required|max:255',
@@ -46,6 +46,8 @@ class CatsController extends Controller
             $image=$request->file('imagepath');
             $path=Storage::disk('s3')->putFile('/',$image,'public');
             $cat->imagepath=Storage::disk('s3')->url($path);
+        }else if($request->file('imagepath')==null){
+            $cat->imagepath=Storage::disk('s3')->url('default_cat.jpg');
         }
         
         $cat->user_id=\Auth::id();

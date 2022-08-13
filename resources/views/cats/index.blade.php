@@ -12,7 +12,7 @@
                     <img class="cat-index-img" src="{{$cat->imagepath}}" alt="">
 
                     <div class="cat-index-text">
-                        <p>{{$cat->protected_place}}</p>
+                        <p class="place">{!!nl2br(e($cat->protected_place))!!}</p>
                         <p>{{$cat->age}}歳</p>
                         <p>{{$cat->sex}}</p>
                     </div>

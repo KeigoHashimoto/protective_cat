@@ -7,7 +7,11 @@
 @include('commons.navtabs')
 
 <div class="favorites container">
-    <h3>{{$user->nickname}}のお気に入り</h3>
+    @if(!isset($user->nickname))
+        <h3>名無しの猫好き人間　のお気に入り</h3>
+    @else
+        <h3>{{$user->nickname}}　のお気に入り</h3>
+    @endif
     @foreach($user->favorites()->get() as $favorite)
         <div class="user-list mt-3">
             <span class="cat-date">投稿日時：{{$favorite->created_at}}</span>

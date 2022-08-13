@@ -41,8 +41,11 @@ class UsersController extends Controller
             $user->user_image=Storage::disk('s3')->url('default_user.jpg');
         }
         
-
+        
         $user->nickname=$request->nickname;
+        if($request->nickname==null){
+            $user->nickname = '名無しの猫好き人間';
+        };
         $user->age=$request->age;
         $user->comment=$request->comment;
         $user->save();

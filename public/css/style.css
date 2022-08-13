@@ -78,6 +78,17 @@ a{
     border-radius:5px;
 }
 
+.delete-btn{
+    padding:0 5rem;
+    text-align: center;
+    background:red;
+    color:#fff;
+    border-radius:5px;
+    display:block;
+    margin:0 auto;
+    border:none;
+}
+
 /*header*/
 header{
     background: var(--line-color);

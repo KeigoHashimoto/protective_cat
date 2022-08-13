@@ -14,11 +14,7 @@
                     {!! link_to_route('user.edit','編集',[$user->id],['class'=>'edit-btn']) !!}
                 @endif
                 
-                @if(!isset($user->nickname))
-                    <p>ニックネーム：名無しの猫好き人間</p>
-                @else
                     <p>ニックネーム：{{$user->nickname}}</p>
-                @endif    
                     <p>年齢：{{$user->age}}</p>
                     <p>{!!nl2br(e($user->comment))!!}</p>
                 

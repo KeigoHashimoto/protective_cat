@@ -130,4 +130,13 @@ class CatsController extends Controller
         
         return redirect('/');
     }
+    
+    public function destroy($id) {
+        $cat = Cat::findOrFail($id);
+        $cat->delete();
+        
+        return redirect('/');
+    }
 }
+
+    

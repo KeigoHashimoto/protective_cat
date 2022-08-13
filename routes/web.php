@@ -39,6 +39,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('cats/{id}','CatsController@show')->name('cat.show');
     Route::get('cat/{id}/edit','CatsController@edit')->name('cat.edit');
     Route::put('cat/{id}/put','CatsController@update')->name('cat.update');
+    Route::delete('cat/{id}/delete','CatsController@destroy')->name('cat.delete');
     
     Route::group(['prefix'=>'cats/{id}'],function(){
         Route::post('favorite','CatsUsersController@store')->name('favorite');

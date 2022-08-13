@@ -26,6 +26,15 @@
             {!! link_to_route('signup.get','新規登録してお気に入り登録',[],['class'=>'btn']) !!}
         @endif
         
+            <div class="delete">
+                @if(Auth::id() == $cat->user->id)
+                    {!! Form::open(['route'=>['cat.delete',$cat->id],'method'=>'delete']) !!}
+                        {!! Form::submit('この保護猫の掲載を終了する',['class'=>'delete-btn']) !!}
+                    {!! Form::close() !!}
+                @endif
+            </div>
+
+        
         <div class="cat-profile">
             @if(Auth::id() == $cat->user->id)
                 {!! link_to_route('cat.edit','編集',[$cat->id],['class'=>'edit-btn']) !!}
@@ -48,6 +57,7 @@
             </div>
         </div>
     </div>
+    
 </div>
 
 @include('commons.profile')

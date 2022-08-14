@@ -374,6 +374,7 @@ body{
     width:320px;
     height:480px;
     padding:1rem;
+    margin:0 auto;
 }
 
 .cat-index-img{
@@ -418,8 +419,8 @@ body{
 }
 
 .cat-show-img{
-    width: 90%;
-    height: auto;
+    width:90%;
+    height:auto;
     border:5px solid #8C6D32;
     border-radius:50%;
     display:block;

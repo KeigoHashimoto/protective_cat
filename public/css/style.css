@@ -118,7 +118,9 @@ nav a{
 
 .sarch-btn{
     border-radius:5px;
-    background: #F2F2F2;
+    background: #333;
+    color:#fafafa;
+    margin-left:1rem;
 }
 
 

@@ -316,7 +316,8 @@ body{
     border:5px solid #8C6D32;
     border-radius:50%;
     width:90%;
-    height:auto;
+    height:90%;
+    max-width:600px;
     display:block;
     margin:0 auto 1rem;
 }
@@ -419,12 +420,13 @@ body{
 }
 
 .cat-show-img{
-    width:90%;
-    height:auto;
     border:5px solid #8C6D32;
     border-radius:50%;
     display:block;
     margin:0 auto;
+    width:90%;
+    height:90%;
+    max-width:600px;
 }
 
 .show-number{

@@ -309,17 +309,17 @@ body{
 
 .profile-img-wrap{
     max-width:600px;
+    max-width:600px;
     margin:0 auto;
 }
 
 .profile-img{
     border:5px solid #8C6D32;
     border-radius:50%;
-    width:90%;
-    height:90%;
-    max-width:600px;
     display:block;
     margin:0 auto 1rem;
+    width:90%;
+    height:90%;
 }
 
 .nav-tabs .nav-item .nav-link{
@@ -416,6 +416,7 @@ body{
 
 .image-wrap{
     max-width:600px;
+    max-height:600%;
     margin:0 auto;
 }
 

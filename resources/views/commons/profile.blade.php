@@ -3,8 +3,7 @@
         <div class="profile-img-wrap col-lg-3">
             <div><a href="{{route('user.show',[$user->id])}}"><img class="profile-img" src="{{$user->user_image}}"></a></div>
         </div>
-        {{--空白--}}
-        <div class="col-lg-1"></div>
+        
         
         <div class="col-lg-8">
  

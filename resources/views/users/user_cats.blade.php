@@ -19,11 +19,9 @@
             <div class="cat-wrap">
                 <a href="{{route('cat.show',[$cat->id])}}"><img class="user-list-img" src="{{$cat->imagepath}}"></a>
                 <div class="user-list-text">
-                    <p class="cat-type">{{$cat->cat_type}}</p>
-                    <div class="cat-info">
-                        <p>{{$cat->age}}歳</p>
-                        <p>性別：{{$cat->sex}}</p>
-                    </div>
+                    <p class="cat-type">猫の種類：{{$cat->cat_type}}</p>
+                    <p>年齢：{{$cat->age}}歳</p>
+                    <p>性別：{{$cat->sex}}</p>
                 </div>
             </div>
         </div>

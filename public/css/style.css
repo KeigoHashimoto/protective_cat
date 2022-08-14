@@ -163,19 +163,20 @@ body{
 }
 .cat-wrap{
     display:flex;
+    height:auto;
 }
 
 .cat-date{
     color:#888;
     margin-left:1rem;
-    font-size:.8rem;
+    font-size:.7rem;
 }
 
 .user-list{
     border-radius:5px;
     margin-bottom:1rem;
     background: #ddd;
-    padding:0 2rem;
+    padding:1rem;
 }
 
 .user-list-img{
@@ -187,20 +188,42 @@ body{
     display:block;
 }
 
-.user-list-text{
-    transform:translate(0%,25%);
-    line-height: 20px;
-    margin-left:3rem;
+@media screen and (max-width:540px){
+    .user-list-img{
+        width:50px;
+        height: 50px;
+    }
+    
+    .user-list-text{
+        width: 180px;
+    }
 }
 
+@media screen and (max-width:960px) and (min-width:650px){
+    .user-list-text{
+        width: 450px;
+    }
+}
 
-.cat-info{
-    display:flex;
-    column-gap:2rem;
+.user-list-text{
+    line-height:0.9;
+    margin-left:1rem;
+    margin-top: 1rem;
+}
+
+.user-list-text p{
+    max-width:700px;
+    overflow-wrap:break-word;
 }
 
 .cat-type{
     font-size:1.5rem;
+}
+
+@media screen and (max-width:540px){
+    .cat-type{
+        font-size:1rem;
+    }
 }
 
 
@@ -318,8 +341,15 @@ body{
     display:block;
     margin:0 auto 1rem;
     border-radius:50%;
-    width:90%;
-    height:width;
+    width:250px;
+    height:250px;
+}
+
+@media screen and (max-width:540px){
+    .profile-img{
+        width:300px;
+        height:300px;
+    }
 }
 
 .nav-tabs .nav-item .nav-link{
@@ -424,10 +454,17 @@ body{
     border:5px solid #8C6D32;
     display:block;
     margin:0 auto;
-    width:90%;
-    height:width;
+    width:500px;
+    height:500px;
     border-radius:50%;
     max-width:600px;
+}
+
+@media screen and (max-width:540px){
+    .cat-show-img{
+        width:300px;
+        height:300px;
+    }
 }
 
 .show-number{

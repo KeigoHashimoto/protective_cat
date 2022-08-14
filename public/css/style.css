@@ -102,15 +102,19 @@ nav a{
     text-align:center;
 }
 
-.sarch-form-group{
-    margin:0 3rem;
+.sarch-form-group form{
+    max-width:500px;
+    display:flex;
+    margin:0 auto;
+    min-width:350px;
 }
 
 .sarch-form{
     border-radius:5px;
     outline:0;
-    min-width:25rem;
+    width:100%;
 }
+
 
 .sarch-btn{
     border-radius:5px;
@@ -303,11 +307,16 @@ body{
     position:relative;
 }
 
+.profile-img-wrap{
+    max-width:600px;
+    margin:0 auto;
+}
+
 .profile-img{
     border:5px solid #8C6D32;
     border-radius:50%;
-    width:250px;
-    height:250px;
+    width:90%;
+    height:auto;
     display:block;
     margin:0 auto 1rem;
 }
@@ -404,16 +413,17 @@ body{
 }
 
 .image-wrap{
-    width: 500px;
+    max-width:600px;
     margin:0 auto;
 }
 
 .cat-show-img{
-    width: 500px;
-    height: 500px;
+    width: 90%;
+    height: auto;
     border:5px solid #8C6D32;
     border-radius:50%;
-    
+    display:block;
+    margin:0 auto;
 }
 
 .show-number{
@@ -459,7 +469,6 @@ body{
     width: 70%;
     margin:0 auto 2rem;
     padding-bottom: .5rem;
-    
 }
 .chat-user-img{
     display:block;

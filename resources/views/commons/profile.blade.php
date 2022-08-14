@@ -1,12 +1,12 @@
 <div class="container">
     <div class="row profile mt-5">
-        
-        <div class="col-md-3"><a href="{{route('user.show',[$user->id])}}"><img class="profile-img" src="{{$user->user_image}}"></a></div>
-        
+        <div class="profile-img-wrap col-lg-3">
+            <div><a href="{{route('user.show',[$user->id])}}"><img class="profile-img" src="{{$user->user_image}}"></a></div>
+        </div>
         {{--空白--}}
-        <div class="col-md-1"></div>
+        <div class="col-lg-1"></div>
         
-        <div class="col-md-8">
+        <div class="col-lg-8">
  
             <div class="profile-text">
                 {{--ログインユーザーのみ自分のプロフィールを編集できる--}}

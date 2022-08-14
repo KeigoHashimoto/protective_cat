@@ -11,7 +11,7 @@
         
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
-            <div class="sarch-form-group">
+            <div class="sarch-form-group mr-3">
                 {!! Form::open(['route'=>['cats.index'],'method'=>'get']) !!}
                     {!! Form::text('sarch',null,['class'=>'sarch-form','placeholder'=>'キーワードを入力して可愛い猫を検索！']) !!}
                     {!! Form::submit('検索',['class'=>'sarch-btn']) !!}}

@@ -40,39 +40,24 @@ class MessagesController extends Controller
     }
     
     public function index(){
-        $user=\Auth::user();
+        $userId=\Auth::id();
+        $subQuery = function($query) use ($userId) {
+            $query->from('messages')
+                ->selectRaw("case when user_id= {$userId} then to_user_id
+                                  else user_id
+                             end as user_id")
+                ->selectRaw('max(created_at) as latest_message_at')
+                ->where('messages.user_id', $userId)
+                ->orWhere('messages.to_user_id', $userId)
+                ->groupByRaw("case when user_id= $userId then to_user_id
+                                  else user_id
+                             end");
+        };
+        //サブクエリをusersテーブルと結合してユーザー情報を取得
+        $chatrooms=User::select(['users.id', 'users.name', 'users.nickname','user_image'])->joinSub($subQuery, 'messages', 'users.id', 'messages.user_id')->get();
+        
+        $firstMessage=\DB::table($subQuery)->orderBy('latest_message_at', 'desc')->first();
 
-        $sends=$user->sends()->get();
-        $recieves=$user->recieves()->get();
-        $messageUsers=$sends->concat($recieves)->unique('id');
-        
-        $chatrooms=array();
-        
-        if(!empty($messageUsers)){
-            
-            foreach($messageUsers as $messageUser){
-                
-                $chats = Message::where('user_id','=',$user->id)
-                ->orWhere('to_user_id','=',$user->id)
-                ->orderBy('created_at','desc')
-                ->get();
-                
-            
-                foreach($chats as $chat){
-                    
-                    if($chat->user_id===$user->id){
-                        $chatrooms[]=User::findOrFail($chat->to_user_id);
-                    }else if($chat->to_user_id === $user->id){
-                        $chatrooms[]=User::findOrFail($chat->user_id);
-                    }
-      
-                }
-            }
-            
-        }
-        
-      
-        return view('chatrooms.chatrooms',['user'=>$user,'chatrooms'=>$chatrooms]);
+        return view('chatrooms.chatrooms',['user'=>$userId,'chatrooms'=>$chatrooms,]);
     }
-    
 }

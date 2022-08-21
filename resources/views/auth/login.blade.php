@@ -21,11 +21,11 @@
                     {!! Form::password('password',['class'=>'form-control']) !!}
                 </div>
                 
-                {!! Form::submit('Login',['class'=>'form-control btn']) !!}
+                {!! Form::submit('Login',['class'=>'form-control primary']) !!}
                 <p class="or">or</p>
             {!! Form::close() !!}
                 
-            {!! link_to_route('guest.index','登録しないで使用',[],['class'=>'form-control btn']) !!}
+            {!! link_to_route('guest.index','登録しないで使用',[],['class'=>'form-control primary']) !!}
             
             <p class="sub-link"><span>登録がお済じゃありませんか？</span>{!! link_to_route('signup.get','新規登録') !!}</p>
         </div>

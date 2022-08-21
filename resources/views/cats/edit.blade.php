@@ -85,9 +85,9 @@
             {!! Form::file('imagepath',null,['class'=>'form-control']) !!}
         </div>
         
-        {!! Form::submit('変更',['class'=>'form-control btn'])!!}
+        {!! Form::submit('変更',['class'=>'form-control primary'])!!}
     {!! Form::close() !!}
     </div>
-    {!! link_to_route('welcome','トップに戻る',[],['class'=>'btn form-control']) !!}
+    {!! link_to_route('welcome','トップに戻る',[],['class'=>'primary form-control']) !!}
 </div>
 @endsection

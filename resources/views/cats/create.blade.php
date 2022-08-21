@@ -16,9 +16,9 @@
         <div class="form-group">
             {!! Form::label('sex','猫の性別',['class'=>'cats-label']) !!}
             <div class="form-group">
-                {!! Form::radio('sex','♂',true) !!}
+                {!! Form::radio('sex','オス',true) !!}
                 {!! Form::label('sex','♂') !!}
-                {!! Form::radio('sex','♀',false) !!}
+                {!! Form::radio('sex','メス',false) !!}
                 {!! Form::label('sex','♀') !!}
             </div>
         </div>
@@ -85,9 +85,9 @@
             {!! Form::file('imagepath',null,['class'=>'form-control']) !!}
         </div>
         
-        {!! Form::submit('登録',['class'=>'form-control btn'])!!}
+        {!! Form::submit('登録',['class'=>'form-control primary'])!!}
     {!! Form::close() !!}
     </div>
-    {!! link_to_route('welcome','トップに戻る',[],['class'=>'btn form-control']) !!}
+    {!! link_to_route('welcome','トップに戻る',[],['class'=>'primary form-control']) !!}
 </div>
 @endsection

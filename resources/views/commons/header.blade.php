@@ -1,9 +1,16 @@
 <header class="mb-4">
-    <nav class="navbar navbar-expand-sm navbar-dark">
+    <nav class="navbar navbar-expand-sm navbar-light">
+        @if(!empty(Auth::user()->age))
         <a class="navbar-brand ml-3" href="/">
             ^           ^<br>
             ProtectiveCat
         </a>
+        @else
+        <p>
+            ^           ^<br>
+            ProtectiveCat
+        </p>
+        @endif
             
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
             <span class="navbar-toggler-icon"></span>
@@ -14,7 +21,7 @@
             <div class="sarch-form-group mr-3">
                 {!! Form::open(['route'=>['cats.index'],'method'=>'get']) !!}
                     {!! Form::text('sarch',null,['class'=>'sarch-form','placeholder'=>'キーワードを入力して可愛い猫を検索！']) !!}
-                    {!! Form::submit('検索',['class'=>'sarch-btn']) !!}}
+                    {!! Form::submit('検索',['class'=>'sarch-btn']) !!}
                 {!! Form::close()!!}
             </div>
             <ul class="navbar-nav">

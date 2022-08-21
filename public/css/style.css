@@ -3,18 +3,24 @@
 /*共通*/
 * *::after ::before{
     box-sizing:border-box;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 a{
     color:#333;
 }
 
-:root{
-    --main-color:#F27405;
-    --background:#8C6D32;
-    --line-color:#401D10;
+a:hover{
+    text-decoration:none;
 }
 
+:root{
+    --primary:#9AC2FF;
+    --header-color:#E6E1F2;
+    --danger:#FA7E68;
+    --background:#fff;
+    --line:#FFDDBD;
+}
 
 /*pagination*/
 
@@ -32,7 +38,7 @@ a{
 
 /*footer*/
 .footer{
-    background:var(--line-color);
+    background:var(--header-color);
 }
 
 .footer small{
@@ -46,8 +52,7 @@ a{
 /*button*/
 .welcome-btn{
     border-radius:5px;
-    border:1px solid #F25C05;
-    background:#F27405;
+    background:var(--primary);
     color:#fff;
     padding:0 3rem;
     padding:.3rem 5rem;
@@ -56,21 +61,26 @@ a{
     text-align: center;
 }
 
-.btn{
+.primary{
     border-radius:5px;
-    border:1px solid #F25C05;
-    background:#F27405;
+    background:var(--primary);
     padding:.3rem 3rem;
     color:#fff;
     width: 60%;
     display:block;
     margin:0 auto;
+    transition:none;
+    border:none;
+    text-align:center;
+}
+.primary:hover{
+    background: #5493FF;
 }
 
 .edit-btn{
     padding:5px;
     text-align: center;
-    background:red;
+    background:var(--danger);
     color:#fff;
     position:absolute;
     right: 5px;
@@ -81,7 +91,7 @@ a{
 .delete-btn{
     padding:0 5rem;
     text-align: center;
-    background:red;
+    background:var(--danger);
     color:#fff;
     border-radius:5px;
     display:block;
@@ -89,9 +99,27 @@ a{
     border:none;
 }
 
+.chatroom-btn{
+    display:flex;
+    place-items:center;
+    margin-left:3rem;
+    font-size:2rem;
+}
+
+.sarch-btn{
+    border-radius:5px;
+    background: var(--primary);
+    color:#fafafa;
+    margin-left:1rem;
+    border:none;
+}
+
+.sarch-btn:hover{
+    background: #5493FF;
+}
 /*header*/
 header{
-    background: var(--line-color);
+    background:var(--header-color);
 }
 
 nav a{
@@ -113,22 +141,16 @@ nav a{
     border-radius:5px;
     outline:0;
     width:100%;
+    border:none;
+    font-size:.8rem;
 }
-
-
-.sarch-btn{
-    border-radius:5px;
-    background: #333;
-    color:#fafafa;
-    margin-left:1rem;
-}
-
 
 /*welcome page*/
 body{
-    background:#F2E6DF;
+    background:var(--background);
+    letter-spacing:2.2px;
+    color:#333;
 }
-
 
 .main{
     height:100vh;
@@ -184,7 +206,7 @@ body{
 .user-list-img{
     width: 100px;
     height: 100px;
-    border:5px solid #8C6D32;
+    border:2px solid var(--line);
     border-radius:50%;
     margin:1rem;
     display:block;
@@ -288,7 +310,7 @@ body{
 }
 
 .form{
-    border:2px solid #F21905;
+    border:2px solid #5493FF;
     border-radius:5px;
     padding:1.7rem;
     margin-top:2rem;
@@ -328,10 +350,14 @@ body{
 
 .profile-text{
     padding: 2rem 3rem;
-    border:3px solid var(--line-color);
+    background:#ddd;
     border-radius:5px;
-    line-height:1;
     position:relative;
+}
+
+.profile-text p{
+    border-bottom:1px solid #999;
+    padding-bottom:5px;
 }
 
 .profile-img-wrap{
@@ -341,7 +367,7 @@ body{
 }
 
 .profile-img{
-    border:5px solid #8C6D32;
+    border:3px solid var(--line);
     display:block;
     margin:0 auto 1rem;
     border-radius:50%;
@@ -361,25 +387,34 @@ body{
 }
 
 .nav-item .nav-link.active{
-    background: #D9AA8F;
+    background: var(--header-color);
 }
 
 .nav-tabs .nav-link{
     border:none;
 }
 
+a .nav-link:hover{
+    color:#333;
+}
+
 .my-cat{
-    background:#D9AA8F ;
+    background:var(--header-color) ;
     padding:3rem;
     margin-bottom: 2rem;
     border-top-right-radius: 5px;
 }
 
 .favorites{
-    background: #D9AA8F;
+    background:var(--header-color);
     padding: 3rem;
     margin-bottom: 2rem;
     border-top-right-radius: 5px;
+}
+
+.profile-label{
+    font-weight:bold;
+   
 }
 /*cats.create　保護猫登録ページ*/
 .cats_wrap{
@@ -417,7 +452,7 @@ body{
     width: 250px;
     height: 250px;
     border-radius:50%;
-    border:5px solid #8C6D32;
+    border:2px solid var(--line);
     margin:2rem auto 1rem;
 }
 
@@ -455,7 +490,7 @@ body{
 }
 
 .cat-show-img{
-    border:5px solid #8C6D32;
+    border:3px solid var(--line);
     display:block;
     margin:0 auto;
     width:500px;
@@ -483,9 +518,9 @@ body{
 }
 
 .cat-profile{
-    padding: 1rem;
+    padding: 2rem;
     line-height:1;
-    border:3px solid var(--line-color);
+    background: #ddd;
     border-radius:5px;
     margin:2rem auto 0;
     display:flex;
@@ -501,6 +536,8 @@ body{
 
 .cat-profile > div > p{
     overflow-wrap:break-word;
+    border-bottom:1px solid #999;
+    padding-bottom:5px;
 }
 
 /*chatrooms-index*/
@@ -520,14 +557,7 @@ body{
     width: 100px;
     height: 100px;
     border-radius:50%;
-    border:5px solid #8C6D32;
-}
-
-.chatroom-btn{
-    display:flex;
-    place-items:center;
-    margin-left:3rem;
-    font-size:2rem;
+    border:2px solid var(--line);
 }
 
 .chat-post{
@@ -548,7 +578,7 @@ body{
     width: 100px;
     height: 100px;
     border-radius:50%;
-    border:5px solid #8C6D32;
+    border:2px solid var(--line);
     background: #fff;
 }
 

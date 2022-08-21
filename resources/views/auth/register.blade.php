@@ -30,11 +30,11 @@
                     {!! Form::password('password_confirmation',['class'=>'form-control']) !!}
                 </div>
 
-                {!! Form::submit('新規登録',['class'=>'form-control btn']) !!}
+                {!! Form::submit('新規登録',['class'=>'form-control primary']) !!}
                 <p class="or">or</p>
             {!! Form::close() !!}
             
-            {!! link_to_route('cats.index','登録しないで使用',[],['class'=>'form-control btn']) !!}
+            {!! link_to_route('cats.index','登録しないで使用',[],['class'=>'form-control primary']) !!}
                
                 <p class="sub-link">{!! link_to_route('login','ログイン') !!}</p>
             </div>    

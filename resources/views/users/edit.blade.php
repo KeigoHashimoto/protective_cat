@@ -22,7 +22,7 @@
                 {!! Form::label('user_image','画像') !!}
                 {!! Form::file('user_image',null,['class'=>'form-control']) !!}
             </div>
-            {!! Form::submit('変更',['class'=>'form-control btn']) !!}
+            {!! Form::submit('変更',['class'=>'form-control primary']) !!}
         {!! Form::close() !!}
     </div>
 </div>

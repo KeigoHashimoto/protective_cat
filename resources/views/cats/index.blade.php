@@ -17,9 +17,9 @@
                         <p>{{$cat->sex}}</p>
                     </div>
                     @if(Auth::check())
-                        {!! link_to_route('cat.show','more',[$cat->id],['class'=>'btn']) !!}
+                        {!! link_to_route('cat.show','more',[$cat->id],['class'=>'primary']) !!}
                     @else
-                        {!! link_to_route('guest.show','more',[$cat->id],['class'=>'btn']) !!}
+                        {!! link_to_route('guest.show','more',[$cat->id],['class'=>'primary']) !!}
                     @endif
                 </div>
             @endforeach

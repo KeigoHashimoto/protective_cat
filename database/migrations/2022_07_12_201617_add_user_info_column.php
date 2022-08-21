@@ -14,7 +14,7 @@ class AddUserInfoColumn extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('nickname')->nullable();
+            $table->string('nickname')->default('名無しの猫好き人間');
             $table->integer('age')->nullable();
             $table->string('comment')->nullable();
         });

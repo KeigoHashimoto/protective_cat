@@ -28,7 +28,7 @@ class MessagesController extends Controller
         return back();
     }
     
-    public function show($id,$messageId){
+    public function show($id){
         $user=User::findOrFail($id);
         $messages=Message::where('user_id','=',\Auth::id())->where('to_user_id','=',$user->id)
         ->orWhere(function($query) use($user){

@@ -28,7 +28,7 @@ class MessagesController extends Controller
         return back();
     }
     
-    public function show($id){
+    public function show($id,$messageId){
         $user=User::findOrFail($id);
         $messages=Message::where('user_id','=',\Auth::id())->where('to_user_id','=',$user->id)
         ->orWhere(function($query) use($user){
@@ -56,6 +56,7 @@ class MessagesController extends Controller
         //サブクエリをusersテーブルと結合してユーザー情報を取得
         $chatrooms=User::select(['users.id', 'users.name', 'users.nickname','user_image'])->joinSub($subQuery, 'messages', 'users.id', 'messages.user_id')->orderBy('latest_message_at','desc')->get();
         
+        dump($chatrooms);
         return view('chatrooms.chatrooms',['user'=>$userId,'chatrooms'=>$chatrooms,]);
     }
 }

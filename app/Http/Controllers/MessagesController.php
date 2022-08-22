@@ -56,7 +56,7 @@ class MessagesController extends Controller
         //サブクエリをusersテーブルと結合してユーザー情報を取得
         $chatrooms=User::select(['users.id', 'users.name', 'users.nickname','user_image'])->joinSub($subQuery, 'messages', 'users.id', 'messages.user_id')->orderBy('latest_message_at','desc')->get();
         
-        dump($chatrooms);
+        
         return view('chatrooms.chatrooms',['user'=>$userId,'chatrooms'=>$chatrooms,]);
     }
 }

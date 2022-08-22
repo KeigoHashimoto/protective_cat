@@ -4,10 +4,8 @@
 
 <div class="form-wrap">
     <div class="container">
-        <h1 class="logo">
-            ^           ^<br>
-            ProtectiveCat
-        </h1>
+        <img src="{{ Storage::disk('s3')->url('logo.png') }}" alt="logo" class="logo-title">
+        
         <h2>Signup</h2>
         
         <div class="form">

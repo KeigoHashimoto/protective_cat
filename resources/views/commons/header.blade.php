@@ -1,17 +1,9 @@
 <header class="mb-4">
     <nav class="navbar navbar-expand-sm navbar-light">
-        @if(!empty(Auth::user()->age))
         <a class="navbar-brand ml-3" href="/">
-            ^           ^<br>
-            ProtectiveCat
+            <img src="{{ Storage::disk('s3')->url('logo.png') }}" alt="logo" class="logo-img">
         </a>
-        @else
-        <p>
-            ^           ^<br>
-            ProtectiveCat
-        </p>
-        @endif
-            
+       
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
             <span class="navbar-toggler-icon"></span>
         </button>

@@ -11,10 +11,7 @@
 @else
     <div class="main">
         <div>
-            <h1 class="main-title display-2">
-                ^          ^<br>
-                ProtectiveCat
-            </h1>
+            <img src="{{ Storage::disk('s3')->url('logo.png') }}" alt="logo" class="logo-title">
             <div class="buttons">
                 {!! link_to_route('signup.get','Signup',[],['class'=>'welcome-btn']) !!}
                 

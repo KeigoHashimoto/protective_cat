@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="chatrooms-index">
-        @if(!empty($chatrooms))
+        @if($chatrooms = null)
             @foreach($chatrooms as $chatroom)
                 <div class="chatroom">
                     <div><a href="{{route('user.show',[$chatroom->id])}}"><img class="chat-user-img" src="{{$chatroom->user_image}}"></a></div>
@@ -11,7 +11,7 @@
                 </div>
             @endforeach
         @else
-            <p>まだやり取りしているユーザーがいません</p>
+            <p>まだやり取りしているユーザーがいないにゃ！</p>
         @endif
 
     </div>

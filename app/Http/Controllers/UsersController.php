@@ -42,10 +42,6 @@ class UsersController extends Controller
         }
         
         
-        $user->nickname=$request->nickname;
-        if($request->nickname==null){
-            $user->nickname = '名無しの猫好き人間';
-        };
         $user->age=$request->age;
         $user->comment=$request->comment;
         $user->save();

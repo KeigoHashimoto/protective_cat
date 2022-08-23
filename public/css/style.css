@@ -103,6 +103,26 @@ a:hover{
     place-items:center;
     margin-left:3rem;
     font-size:2rem;
+    position:relative;
+    font-weight:bold;
+}
+
+.chatroom-btn:after{
+    content:'NEW';
+    font-size:.7rem;
+    background:#ccc;
+    padding:1px 3px;
+    border-radius:2px;
+    position:absolute;
+    top: calc(50%-(.7rem/2));
+    right:-3rem;
+}
+
+.chatroom-btn-ok{
+    display:flex;
+    place-items:center;
+    margin-left:3rem;
+    font-size:2rem;
 }
 
 .sarch-btn{

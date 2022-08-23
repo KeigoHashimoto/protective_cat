@@ -35,8 +35,15 @@ class MessagesController extends Controller
             $query->where('user_id','=',$user->id)->where('to_user_id','=',\Auth::id());
         })
         ->orderBy('created_at','desc')->get();
-
-        return view('chatrooms.chatshow',['messages'=>$messages,'user'=>$user]);
+        
+        $msg=$messages->where('user_id','=',$user->id)->first();
+        
+        if($msg->read == false){
+            $msg->read = true;
+            $msg->save();
+        }
+        
+        return view('chatrooms.chatshow',['messages'=>$messages,'user'=>$user,]);
     }
     
     public function index(){
@@ -54,8 +61,7 @@ class MessagesController extends Controller
                              end");
         };
         //サブクエリをusersテーブルと結合してユーザー情報を取得
-        $chatrooms=User::select(['users.id', 'users.name', 'users.nickname','user_image'])->joinSub($subQuery, 'messages', 'users.id', 'messages.user_id')->orderBy('latest_message_at','desc')->get();
-        
+        $chatrooms=User::select(['users.id', 'users.name', 'users.nickname','user_image',])->joinSub($subQuery, 'messages', 'users.id', 'messages.user_id')->orderBy('latest_message_at','desc')->get();
         
         return view('chatrooms.chatrooms',['user'=>$userId,'chatrooms'=>$chatrooms,]);
     }

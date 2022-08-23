@@ -14,7 +14,7 @@
             <div class="message-wrap">
                 <p class="send-user">{{$message->user->nickname}}</p>
                 <p>{!!nl2br(e($message->message))!!}</p>
-                <p class="message-created-at">{{$message->created_at}}</p>
+                <p class="message-created-at">{{$message->read}}</p>
             </div>
         </div>
     @endforeach

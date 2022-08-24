@@ -38,10 +38,13 @@ class MessagesController extends Controller
         
         $msg=$messages->where('user_id','=',$user->id)->first();
         
-        if($msg->read == false){
-            $msg->read = true;
-            $msg->save();
-        }
+        if($msg != null){
+            if($msg->read == false){
+                $msg->read = true;
+                $msg->save();
+            };
+        };
+        
         
         return view('chatrooms.chatshow',['messages'=>$messages,'user'=>$user,]);
     }

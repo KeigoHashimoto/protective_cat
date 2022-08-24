@@ -133,12 +133,12 @@ a:hover{
 
 @media only screen and (max-width:540px){
     .chatroom-btn{
-        font-size:.7rem;
+        font-size:1rem;
         max-width:170px;
         margin-left: 1rem;
     }
     .chatroom-btn-ok{
-        font-size:.7rem;
+        font-size:1rem;
         max-width:170px;
         margin-left: 1rem;
     }
@@ -146,12 +146,12 @@ a:hover{
 
 @media only screen and (max-width:960px) and (min-width:540px){
     .chatroom-btn{
-        font-size:.7rem;
+        font-size:1.2rem;
         max-width:350px;
         margin-left: 1rem;
     }
     .chatroom-btn-ok{
-        font-size:.7rem;
+        font-size:1.2rem;
         max-width:350px;
         margin-left: 1rem;
     }

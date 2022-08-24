@@ -8,6 +8,7 @@
 
 a{
     color:#333;
+    word-wrap:word-break;
 }
 
 a:hover{
@@ -99,12 +100,13 @@ a:hover{
 }
 
 .chatroom-btn{
-    display:flex;
-    place-items:center;
+    display:block;
+    max-width: 500px;
     margin-left:3rem;
-    font-size:2rem;
+    font-size:1.7rem;
     position:relative;
     font-weight:bold;
+    word-wrap: word-break;
 }
 
 .chatroom-btn:after{
@@ -119,10 +121,39 @@ a:hover{
 }
 
 .chatroom-btn-ok{
-    display:flex;
-    place-items:center;
+    display:block;
+    max-width: 500px;
     margin-left:3rem;
-    font-size:2rem;
+    font-size:1.7rem;
+    position:relative;
+    word-wrap: word-break;
+    padding:2rem 0;
+}
+
+@media only screen and (max-width:540px){
+    .chatroom-btn{
+        font-size:.7rem;
+        max-width:170px;
+        margin-left: 1rem;
+    }
+    .chatroom-btn-ok{
+        font-size:.7rem;
+        max-width:170px;
+        margin-left: 1rem;
+    }
+}
+
+@media only screen and (max-width:960px) and (min-width:540px){
+    .chatroom-btn{
+        font-size:.7rem;
+        max-width:350px;
+        margin-left: 1rem;
+    }
+    .chatroom-btn-ok{
+        font-size:.7rem;
+        max-width:350px;
+        margin-left: 1rem;
+    }
 }
 
 .sarch-btn{
@@ -146,9 +177,6 @@ header{
     width: 100%;
 }
 
-nav a{
-    color:#999;
-}
 
 .dropdown-item{
     text-align:center;
@@ -167,6 +195,16 @@ nav a{
     width:100%;
     border:none;
     font-size:.8rem;
+}
+
+@media screen and (max-width:960px){
+    .nav-link{
+        font-size:.7rem;
+    }
+    
+    .sarch-form-group form{
+    min-width:250px;
+}
 }
 
 /*welcome page*/
@@ -393,6 +431,7 @@ body{
 .profile-text p{
     border-bottom:1px solid #999;
     padding-bottom:5px;
+    word-wrap:break-word;
 }
 
 .profile-img-wrap{
@@ -442,6 +481,11 @@ a .nav-link:hover{
     border-top-right-radius: 5px;
 }
 
+.my-cat h3{
+    word-wrap:break-word;
+    font-size:1.5rem;
+}
+
 .favorites{
     background:var(--header-color);
     padding: 3rem;
@@ -449,9 +493,14 @@ a .nav-link:hover{
     border-top-right-radius: 5px;
 }
 
+.favorites h3{
+    word-wrap:break-word;
+    font-size:1.5rem;
+}
+
 .profile-label{
     font-weight:bold;
-   
+    
 }
 /*cats.create　保護猫登録ページ*/
 .cats_wrap{
@@ -590,6 +639,7 @@ a .nav-link:hover{
     width: 70%;
     margin:0 auto 2rem;
     padding-bottom: .5rem;
+    word-wrap:break-word;
 }
 .chat-user-img{
     display:block;
@@ -597,6 +647,13 @@ a .nav-link:hover{
     height: 100px;
     border-radius:50%;
     border:2px solid var(--line);
+}
+
+@media screen and (max-width:540px){
+    .chat-user-img{
+        width: 70px;
+        height: 70px;
+    }
 }
 
 .chat-post{
@@ -610,6 +667,10 @@ a .nav-link:hover{
     max-width:1000px;
     margin:0 auto;
     min-height: 100vh;
+}
+
+.chatroom-show h3{
+    word-wrap:break-word;
 }
 
 .message-user-img{

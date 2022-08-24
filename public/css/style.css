@@ -107,6 +107,7 @@ a:hover{
     position:relative;
     font-weight:bold;
     word-wrap: word-break;
+    padding:2rem 0;
 }
 
 .chatroom-btn:after{

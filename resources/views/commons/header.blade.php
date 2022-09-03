@@ -1,6 +1,6 @@
 <header class="mb-4">
     <nav class="navbar navbar-expand-sm navbar-light">
-        <a class="navbar-brand ml-3" href="/protective_cat">
+        <a class="navbar-brand ml-3" href="/">
             <img src="{{ Storage::disk('s3')->url('logo.png') }}" alt="logo" class="logo-img">
         </a>
        

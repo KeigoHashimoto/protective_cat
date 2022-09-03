@@ -19,7 +19,7 @@ Route::post('login','Auth\LoginController@login')->name('login.post');
 Route::get('logout','Auth\LoginController@logout')->name('logout.get');
 
 
-Route::get('/', 'UsersController@welcome')->name('welcome');
+Route::get('/protective_cat', 'UsersController@welcome')->name('welcome');
 
 Route::get('info','UsersController@info')->name('users.info');
 
